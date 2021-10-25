@@ -1,25 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import Row from './components/Row';
+import requests from './requests';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Row requestPath={requests.fetchTrending} />
     </div>
   );
 }
 
 export default App;
+
+// api key # c99fb107e53dd98391cc992bd517a55e
