@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createRef } from 'react';
 import axios from '../axios';
 import './Row.css';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 function Row({ title, requestPath, isLargePoster }) {
   const baseImgPath = 'https://image.tmdb.org/t/p/original/';
@@ -11,21 +12,25 @@ function Row({ title, requestPath, isLargePoster }) {
     async function getMovieData() {
       const { data } = await axios.get(requestPath);
       setMovies(data.results);
-      console.log(data);
       return data.results;
     }
     getMovieData();
-  }, []);
+  }, [requestPath]);
 
-  function scrollRight() {
-    containerRef.current.scrollLeft += 1000;
-    console.log('In Scroll right', containerRef);
+  function scrollDirection(direction) {
+    if (direction === 'left') {
+      containerRef.current.scrollLeft -= 1000;
+    } else {
+      containerRef.current.scrollLeft += 1000;
+    }
   }
 
   return (
     <>
       <h3>{title}</h3>
-      <button onClick={scrollRight}>Scroll Right</button>
+      <button onClick={() => scrollDirection('left')}>
+        <MdChevronLeft />
+      </button>
       <div id='movieContainer'>
         <div ref={containerRef} className='movies'>
           {movies.map((movie, index) => (
@@ -42,6 +47,9 @@ function Row({ title, requestPath, isLargePoster }) {
             />
           ))}
         </div>
+        <button onClick={() => scrollDirection('right')}>
+          <MdChevronRight />
+        </button>
       </div>
     </>
   );
