@@ -1,0 +1,22 @@
+.movies {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 10px 0;
+}
+
+.movies::-webkit-scrollbar {
+  display: none;
+}
+
+.movies__image {
+  object-fit: contain;
+  width: 400px;
+  max-height: 100px;
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease-in;
+}
+
+.movies__image:hover {
+  transform: scale(1.08);
+}

@@ -5,7 +5,7 @@ import requests from './requests';
 function App() {
   return (
     <div className='App'>
-      <Row requestPath={requests.fetchTrending} />
+      <Row title='TRENDING_NOW' requestPath={requests.fetchTrending} />
     </div>
   );
 }
