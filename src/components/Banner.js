@@ -1,6 +1,7 @@
 import axios from '../axios';
 import React, { useEffect, useState } from 'react';
 import requests from '../requests';
+import './Banner.css';
 
 function Banner() {
   const [movie, setMovie] = useState({});
@@ -20,14 +21,20 @@ function Banner() {
     <div
       className='banner'
       style={{
-        backgroundImage: `url(${baseImgPath}${movie.backdrop_path})`,
+        backgroundImage: `url(${baseImgPath}${movie?.backdrop_path})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         height: '500px',
       }}
     >
       {/* Banner title */}
-      <h2>{movie.title}</h2>
+      <h1>{movie?.title || movie?.name}</h1>
+      <div className='banner__btn'>
+        <button className='banner__btn--watchlist'>Add to Watchlist</button>
+        <button className='banner__btn--play'>Play Now</button>
+      </div>
+      <p className='banner__overview'>{movie?.overview}</p>
+      <div className='banner__overlay'></div>
     </div>
   );
 }

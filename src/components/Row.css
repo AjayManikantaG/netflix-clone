@@ -6,6 +6,11 @@
   scroll-behavior: smooth;
 }
 
+h3 {
+  margin-top: 1rem;
+  color: white;
+}
+
 .movies::-webkit-scrollbar {
   display: none;
 }
