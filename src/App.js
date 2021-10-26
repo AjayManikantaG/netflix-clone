@@ -1,11 +1,10 @@
 import './App.css';
-import Row from './components/Row';
-import requests from './requests';
+import Rows from './components/Rows';
 
 function App() {
   return (
     <div className='App'>
-      <Row title='TRENDING_NOW' requestPath={requests.fetchTrending} />
+      <Rows />
     </div>
   );
 }
