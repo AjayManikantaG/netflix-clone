@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.365);
+  transition: all 0.5s;
+  /* padding: 0.5rem; */
+}
+
+.header-dark {
+  background-color: black;
+  transition: all 0.5s;
+}
+
+.header img {
+  object-fit: contain;
+  height: 3rem;
+}
